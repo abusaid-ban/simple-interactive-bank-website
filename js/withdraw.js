@@ -10,7 +10,13 @@ document.getElementById('button-withdraw').addEventListener('click',function(){
 
     const balanceField = document.getElementById("total-balance");
     const previousBalanceTotalString = balanceField.innerText;
-    previousBalanceTotal = parseFloat(previousBalanceTotalString);
+     const previousBalanceTotal = parseFloat(previousBalanceTotalString);
+
+    if(newWithdrawValue > previousBalanceTotal){
+        alert('insufficient balance');
+        return;
+
+    }
     const currentBalanceTotal = previousBalanceTotal - newWithdrawValue;
     balanceField.innerText = currentBalanceTotal;
 
